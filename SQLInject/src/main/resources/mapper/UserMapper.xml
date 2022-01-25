@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.UserMapper">
+    <select id="selectUserByName" resultType="com.mybatis.pojo.User">
+        SELECT * FROM Users WHERE username = '${username}'
+    </select>
+
+    <select id="selectUserByLikeName" resultType="com.mybatis.pojo.User">
+        SELECT * FROM Users WHERE username like '%${username}%'
+    </select>
+
+    <select id="selectUserByLikeNameRepair" resultType="com.mybatis.pojo.User">
+        SELECT * FROM Users WHERE username like concat('%',#{username},'%')
+    </select>
+</mapper>
